@@ -1,0 +1,55 @@
+services:
+  cap-nhat-csdl:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_SUPABASE_URL: ${NEXT_PUBLIC_SUPABASE_URL}
+        NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: ${NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY}
+    env_file:
+      - .env.production
+    command: ["node", "scripts/migrate.mjs"]
+    restart: "no"
+    networks: [ban-gi-ai]
+
+  ung-dung:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_SUPABASE_URL: ${NEXT_PUBLIC_SUPABASE_URL}
+        NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: ${NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY}
+    env_file:
+      - .env.production
+    depends_on:
+      cap-nhat-csdl:
+        condition: service_completed_successfully
+    restart: unless-stopped
+    expose:
+      - "3000"
+    networks: [ban-gi-ai]
+
+  cong-vao:
+    image: caddy:2-alpine
+    environment:
+      DOMAIN: ${DOMAIN:-:80}
+    depends_on:
+      ung-dung:
+        condition: service_healthy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks: [ban-gi-ai]
+
+networks:
+  ban-gi-ai:
+
+volumes:
+  caddy_data:
+  caddy_config:

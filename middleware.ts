@@ -1,0 +1,7 @@
+import { createServerClient } from "@supabase/ssr";
+import { NextResponse, type NextRequest } from "next/server";
+const CAN_DANG_NHAP=["/tai-khoan","/da-luu","/dang-thu","/tro-ly-ai","/quan-tri"];
+function can(path:string){return CAN_DANG_NHAP.some(x=>path===x||path.startsWith(`${x}/`));}
+function anToan(value:string|null){return value&&value.startsWith("/")&&!value.startsWith("//")?value:"/";}
+export async function middleware(request:NextRequest){let response=NextResponse.next({request});const url=process.env.SUPABASE_SERVER_URL||process.env.NEXT_PUBLIC_SUPABASE_URL;const key=process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;if(!url||!key||url.includes("YOUR_PROJECT")) return response;const supabase=createServerClient(url,key,{cookies:{getAll(){return request.cookies.getAll();},setAll(ds){ds.forEach(({name,value})=>request.cookies.set(name,value));response=NextResponse.next({request});ds.forEach(({name,value,options})=>response.cookies.set(name,value,options));}}});const {data}=await supabase.auth.getUser();const path=request.nextUrl.pathname;if(!data.user&&can(path)){const u=request.nextUrl.clone();u.pathname="/dang-nhap";u.search="";u.searchParams.set("next",`${path}${request.nextUrl.search}`);return NextResponse.redirect(u);}if(data.user&&(path==="/dang-nhap"||path==="/dang-ky")){const u=request.nextUrl.clone();u.pathname=anToan(request.nextUrl.searchParams.get("next"));u.search="";return NextResponse.redirect(u);}return response;}
+export const config={matcher:["/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)"]};

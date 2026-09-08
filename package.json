@@ -1,0 +1,32 @@
+{
+  "name": "ban-gi-ai-v3",
+  "version": "0.3.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -H 0.0.0.0 -p 3000",
+    "typecheck": "tsc --noEmit",
+    "db:migrate": "node scripts/migrate.mjs",
+    "db:status": "node scripts/db-status.mjs",
+    "db:validate": "node scripts/db-validate.mjs",
+    "db:new": "node scripts/db-new.mjs",
+    "create-admin": "node scripts/create-admin.mjs"
+  },
+  "dependencies": {
+    "@supabase/ssr": "0.7.0",
+    "@supabase/supabase-js": "2.57.0",
+    "lucide-react": "0.468.0",
+    "next": "15.2.4",
+    "pg": "8.13.3",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.13.10",
+    "@types/pg": "8.11.11",
+    "@types/react": "19.0.10",
+    "@types/react-dom": "19.0.4",
+    "typescript": "5.8.2"
+  }
+}

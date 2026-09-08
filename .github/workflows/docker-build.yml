@@ -1,0 +1,19 @@
+name: Kiểm tra Docker
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Kiểm tra migration
+        run: docker run --rm -v "$PWD:/app" -w /app node:22-alpine node scripts/db-validate.mjs
+      - name: Build image production
+        run: |
+          docker build \
+            --build-arg NEXT_PUBLIC_SUPABASE_URL=https://example.supabase.co \
+            --build-arg NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_example \
+            -t ban-gi-ai:test .

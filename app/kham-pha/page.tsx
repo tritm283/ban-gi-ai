@@ -1,0 +1,2 @@
+import { AppHeader } from "@/components/app-header";import { KhamPha } from "@/components/kham-pha";
+export default function Trang(){return <main><AppHeader/><section className="trang shell"><div className="tieu-de-trang"><div><span className="nhan">KHÁM PHÁ CƠ HỘI</span><h1>Sản phẩm đáng để kiểm tra tiếp</h1><p>Xếp hạng dựa trên Điểm cơ hội, Độ tin cậy và Độ phủ dữ liệu.</p></div></div><KhamPha/></section></main>}

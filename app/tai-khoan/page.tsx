@@ -1,0 +1,2 @@
+import { AppHeader } from "@/components/app-header";import { TaiKhoanForm } from "@/components/tai-khoan-form";
+export default function Trang(){return <main><AppHeader/><section className="trang shell"><div className="tieu-de-trang"><div><span className="nhan">TÀI KHOẢN CỦA TÔI</span><h1>Quản lý tài khoản</h1><p>Cập nhật hồ sơ, bảo mật và phương thức đăng nhập.</p></div></div><TaiKhoanForm/></section></main>}
