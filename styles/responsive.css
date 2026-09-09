@@ -1,0 +1,81 @@
+@media (max-width: 850px) {
+  body {
+    padding-bottom: 68px;
+  }
+
+  .menu-may-tinh {
+    display: none;
+  }
+
+  .nut-menu {
+    display: block;
+  }
+
+  .menu-duoi-dien-thoai {
+    position: fixed;
+    z-index: 29;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid var(--vien);
+    padding: 7px 6px max(7px, env(safe-area-inset-bottom));
+  }
+
+  .menu-duoi-dien-thoai a,
+  .menu-duoi-dien-thoai button {
+    border: 0;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    align-items: center;
+    font-size: 11px;
+    color: var(--phu);
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 42px;
+    gap: 24px;
+  }
+
+  .hero h1 {
+    font-size: 46px;
+  }
+
+  .ba-cot,
+  .luoi {
+    grid-template-columns: 1fr;
+  }
+
+  .bang-dieu-khien,
+  .ho-so,
+  .noi-dung-ai {
+    grid-template-columns: 1fr;
+  }
+
+  .bo-loc {
+    position: static;
+  }
+
+  .tieu-de-trang {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .mang-xa-hoi {
+    grid-template-columns: 1fr;
+  }
+
+  .hang-nut,
+  .hang {
+    flex-wrap: wrap;
+  }
+
+  .chi-so {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,0 +1,68 @@
+.bang-dieu-khien {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+}
+
+.bo-loc {
+  padding: 20px;
+  align-self: start;
+  position: sticky;
+  top: 90px;
+}
+
+.bo-loc label {
+  display: grid;
+  gap: 7px;
+  font-weight: 800;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+.san-pham {
+  padding: 20px;
+}
+
+.san-pham h2 {
+  font-size: 20px;
+  margin: 8px 0;
+}
+
+.diem-hang {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 14px 0;
+}
+
+.diem {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--xanh);
+}
+
+.chi-so {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.chi-so div {
+  background: #f6f8f5;
+  border-radius: 11px;
+  padding: 10px;
+}
+
+.chi-so small,
+.chi-so strong {
+  display: block;
+}
+
+.chi-so small {
+  color: var(--phu);
+  font-size: 11px;
+}
+
+.chi-so strong {
+  font-size: 15px;
+}

@@ -1,0 +1,47 @@
+.noi-dung-ai {
+  display: grid;
+  grid-template-columns: 330px 1fr;
+  gap: 18px;
+}
+
+.tin-nhan {
+  min-height: 420px;
+  max-height: 65vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+}
+
+.bong-chat {
+  padding: 12px 14px;
+  border-radius: 14px;
+  max-width: 80%;
+  white-space: pre-wrap;
+}
+
+.bong-chat.user {
+  margin-left: auto;
+  background: var(--xanh);
+  color: #fff;
+}
+
+.bong-chat.assistant {
+  background: #f0f3ef;
+}
+
+.chat-form {
+  display: flex;
+  gap: 8px;
+  padding: 16px;
+  border-top: 1px solid var(--vien);
+}
+
+.chat-form textarea {
+  min-height: 52px;
+}
+
+.chat-form button {
+  min-width: 92px;
+}

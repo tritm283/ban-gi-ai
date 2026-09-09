@@ -1,0 +1,73 @@
+.dau-trang {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(246, 247, 243, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--vien);
+}
+
+.dau-trang-trong {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.thuong-hieu {
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  font-size: 21px;
+}
+
+.thuong-hieu span {
+  color: var(--xanh);
+}
+
+.menu-may-tinh {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.menu-may-tinh a {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--phu);
+}
+
+.menu-may-tinh a.dang-chon {
+  color: var(--xanh);
+}
+
+.nut-menu {
+  display: none;
+  border: 0;
+  background: transparent;
+  padding: 8px;
+}
+
+.menu-dien-thoai {
+  position: fixed;
+  z-index: 28;
+  top: 70px;
+  left: 16px;
+  right: 16px;
+  background: #fff;
+  border: 1px solid var(--vien);
+  border-radius: 18px;
+  box-shadow: var(--bong);
+  padding: 8px;
+}
+
+.menu-dien-thoai a {
+  display: flex;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 800;
+}
+
+.menu-duoi-dien-thoai {
+  display: none;
+}
